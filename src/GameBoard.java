@@ -1,4 +1,4 @@
-import javax.imageio.ImageIO;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,6 +8,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import javax.imageio.ImageIO;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
@@ -40,9 +41,14 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
         frame.setContentPane(new GameBoard().GameBoard);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setSize(500, 500);
-//        Image image =  new Image("C:\\Users\\mattc\\IdeaProjects\\Gomoku\\src\\test.jpg");
-//        //frame.setBackground(new Background("C:\\Users\\mattc\\IdeaProjects\\Gomoku\\src\\test.jpg"));
-//            frame.setBackground(new Background(image));
+            BufferedImage image = null;
+            try {
+                image = ImageIO.read(new File("C:\\Users\\mattc\\IdeaProjects\\Gomoku\\src\\test.jpg"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            //frame.setBackground(new Background("C:\\Users\\mattc\\IdeaProjects\\Gomoku\\src\\test.jpg"));
+        frame.setContentPane(new Background(image));
 
         menuBar = new JMenuBar();
         jmenu = new JMenu("System");
