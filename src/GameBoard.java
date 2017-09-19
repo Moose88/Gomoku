@@ -1,5 +1,6 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -39,27 +40,19 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
         frame.setContentPane(new GameBoard().GameBoard);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setSize(500, 500);
-
-        frame.setBackground(new Background("C:\\Users\\mattc\\IdeaProjects\\Gomoku\\src\\test.jpg"));
-
+//        Image image =  new Image("C:\\Users\\mattc\\IdeaProjects\\Gomoku\\src\\test.jpg");
+//        //frame.setBackground(new Background("C:\\Users\\mattc\\IdeaProjects\\Gomoku\\src\\test.jpg"));
+//            frame.setBackground(new Background(image));
 
         menuBar = new JMenuBar();
         jmenu = new JMenu("System");
         menuItem = new JMenuItem("Background");
-        menuItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //TODO Add background image variable change here
-            }
+        menuItem.addActionListener(e -> {
+            //TODO Add background image variable change here
         });
 
         menuItem2 = new JMenuItem("Quit");
-        menuItem2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
+        menuItem2.addActionListener(e -> System.exit(0));
 
         jmenu.add(menuItem);
         jmenu.add(menuItem2);
