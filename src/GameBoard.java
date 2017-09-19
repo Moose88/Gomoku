@@ -49,7 +49,7 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
         menuItem = new JMenuItem("Background");
         menuItem.addActionListener(new ActionListener() {
             //TODO Figure out why it needs to be resized to refresh image
-            //TODO attempt to conver to lambda function
+            //TODO attempt to convert to lambda function
             @Override
             public void actionPerformed(ActionEvent h) {
                 switch (i){
@@ -61,6 +61,7 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
                 } System.out.println("attempting to change background to background 0");
                 frame.setContentPane(new Background(image));
                 frame.repaint();
+                frame.setVisible(true);
                 i++;break;
                     case 1:
                     try {
@@ -71,6 +72,7 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
                         System.out.println("attempting to change background to background 1");
                     frame.setContentPane(new Background(image));
                     frame.repaint();
+                    frame.setVisible(true);
                     i++;break;
                     case 2:
                         try {
@@ -81,6 +83,7 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
                         System.out.println("attempting to change background to background 2");
                         frame.setContentPane(new Background(image));
                         frame.repaint();
+                        frame.setVisible(true);
                         i=0;break;
                     default:
             }
