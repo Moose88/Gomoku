@@ -23,6 +23,8 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
     private static JMenuItem menuItem;
     private static JMenuItem menuItem2;
     private static JMenuBar menuBar;
+    private static int i =0;
+        private static BufferedImage image = null;
 
         public GameBoard() {
             QuitButton.addMouseListener(new MouseAdapter() {
@@ -41,20 +43,48 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
         frame.setContentPane(new GameBoard().GameBoard);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setSize(500, 500);
-            BufferedImage image = null;
-            try {
-                image = ImageIO.read(new File("C:\\Users\\mattc\\IdeaProjects\\Gomoku\\src\\test.jpg"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            //frame.setBackground(new Background("C:\\Users\\mattc\\IdeaProjects\\Gomoku\\src\\test.jpg"));
-        frame.setContentPane(new Background(image));
 
         menuBar = new JMenuBar();
         jmenu = new JMenu("System");
         menuItem = new JMenuItem("Background");
-        menuItem.addActionListener(e -> {
-            //TODO Add background image variable change here
+        menuItem.addActionListener(new ActionListener() {
+            //TODO Figure out why it needs to be resized to refresh image
+            //TODO attempt to conver to lambda function
+            @Override
+            public void actionPerformed(ActionEvent h) {
+                switch (i){
+                    case 0:
+                try {
+                    image = ImageIO.read(new File("C:\\Users\\mattc\\IdeaProjects\\Gomoku\\src\\test.jpg"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } System.out.println("attempting to change background to background 0");
+                frame.setContentPane(new Background(image));
+                frame.repaint();
+                i++;break;
+                    case 1:
+                    try {
+                        image = ImageIO.read(new File("C:\\Users\\mattc\\IdeaProjects\\Gomoku\\src\\sombra_overwatch_wallpaper_by_leviathancj-dannxlh.png"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                        System.out.println("attempting to change background to background 1");
+                    frame.setContentPane(new Background(image));
+                    frame.repaint();
+                    i++;break;
+                    case 2:
+                        try {
+                            image = ImageIO.read(new File("C:\\Users\\mattc\\IdeaProjects\\Gomoku\\src\\maxresdefault.jpg"));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        System.out.println("attempting to change background to background 2");
+                        frame.setContentPane(new Background(image));
+                        frame.repaint();
+                        i=0;break;
+                    default:
+            }
+            }
         });
 
         menuItem2 = new JMenuItem("Quit");
