@@ -1,72 +1,68 @@
-
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
-
-    public class GameBoard {
+public class GameBoard extends JFrame{
     private JButton ResetButton;
     private JButton BackButton;
     private JButton QuitButton;
-    private JPanel GameBoard;
-    private GamePanel BoardPanel;
-    private static int i =0;
+    private JPanel ContentPane;
+    private GamePanel GamePanel;
+    private JMenuBar MenuBar;
+    private JMenu SystemMenu;
+    private JMenuItem Background;
+    private JMenuItem Quit;
 
-        private GameBoard() {
-            QuitButton.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    super.mouseClicked(e);
-                   System.exit(0);
-                }
-            });
-            ResetButton.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    super.mouseClicked(e);
-                }
-            });
-            BackButton.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    super.mouseClicked(e);
-                }
-            });
-        }
 
-        public static void main(String[] args) {
 
-        JFrame frame = new JFrame("Gomoku");
-
-        frame.setContentPane(new GameBoard().GameBoard);
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setSize(500, 500);
-        JMenuBar menuBar = new JMenuBar();
-        JMenu jmenu = new JMenu("System");
-        JMenuItem menuItem = new JMenuItem("Background");
-
-        menuItem.addActionListener(new ActionListener(){
-            //TODO attempt to convert to lambda function
-            @Override
-            public void actionPerformed(ActionEvent h) {
-                BoardPanel.ChangeImage();
+    public static void main(String[] args) {
+        EventQueue.invokeLater(() -> {
+            try {
+                GameBoard frame = new GameBoard();
+                frame.setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
-
-        JMenuItem menuItem2 = new JMenuItem("Quit");
-        menuItem2.addActionListener(e -> System.exit(0));
-
-        jmenu.add(menuItem);
-        jmenu.add(menuItem2);
-
-        frame.setJMenuBar(menuBar);
-        menuBar.add(jmenu);
-        frame.setVisible(true);
-
     }
+    private GameBoard(){
+        setTitle("Gomoku");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(500,500);
+        setContentPane(ContentPane);
 
+        MenuBar = new JMenuBar();
 
+        SystemMenu = new JMenu("System");
+        Background= new JMenuItem("Background");
+        Quit = new JMenuItem("Quit");
+        SystemMenu.add(Background);
+        SystemMenu.add(Quit);
+        MenuBar.add(SystemMenu);
+        setJMenuBar(MenuBar);
+
+        Quit.addActionListener(e -> System.exit(0));
+        Background.addActionListener(e -> System.out.println("add code to do the bg stuff here"));
+
+        ResetButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+            }
+        });
+        BackButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+            }
+        });
+        QuitButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                System.exit(0);
+            }
+        });
+    }
 }
