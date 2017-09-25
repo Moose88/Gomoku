@@ -1,106 +1,68 @@
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 
-import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
-
-    public class GameBoard {
+public class GameBoard extends JFrame{
     private JButton ResetButton;
     private JButton BackButton;
     private JButton QuitButton;
-    private JPanel GameBoard;
-    //private Background GameBoard;
-    private JPanel BoardPanel;
-    private static JMenu jmenu;
-    private static JMenuItem menuItem;
-    private static JMenuItem menuItem2;
-    private static JMenuBar menuBar;
-    private static int i =0;
-        private static BufferedImage image = null;
+    private JPanel ContentPane;
+    private GamePanel GamePanel;
+    private JMenuBar MenuBar;
+    private JMenu SystemMenu;
+    private JMenuItem Background;
+    private JMenuItem Quit;
 
-        public GameBoard() {
-            QuitButton.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    super.mouseClicked(e);
-                   System.exit(0);
-                }
-            });
-        }
 
-        public static void main(String[] args) {
 
-        JFrame frame = new JFrame("Gomuku");
-
-        frame.setContentPane(new GameBoard().GameBoard);
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setSize(500, 500);
-
-        menuBar = new JMenuBar();
-        jmenu = new JMenu("System");
-        menuItem = new JMenuItem("Background");
-        menuItem.addActionListener(new ActionListener() {
-            //TODO Figure out why it needs to be resized to refresh image
-            //TODO attempt to convert to lambda function
-            @Override
-            public void actionPerformed(ActionEvent h) {
-                switch (i){
-                    case 0:
-                try {
-                    image = ImageIO.read(new File("C:\\Users\\mattc\\IdeaProjects\\Gomoku\\src\\test.jpg"));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } System.out.println("attempting to change background to background 0");
-                frame.setContentPane(new Background(image));
-                frame.repaint();
+    public static void main(String[] args) {
+        EventQueue.invokeLater(() -> {
+            try {
+                GameBoard frame = new GameBoard();
                 frame.setVisible(true);
-                i++;break;
-                    case 1:
-                    try {
-                        image = ImageIO.read(new File("C:\\Users\\mattc\\IdeaProjects\\Gomoku\\src\\sombra_overwatch_wallpaper_by_leviathancj-dannxlh.png"));
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                        System.out.println("attempting to change background to background 1");
-                    frame.setContentPane(new Background(image));
-                    frame.repaint();
-                    frame.setVisible(true);
-                    i++;break;
-                    case 2:
-                        try {
-                            image = ImageIO.read(new File("C:\\Users\\mattc\\IdeaProjects\\Gomoku\\src\\maxresdefault.jpg"));
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        System.out.println("attempting to change background to background 2");
-                        frame.setContentPane(new Background(image));
-                        frame.repaint();
-                        frame.setVisible(true);
-                        i=0;break;
-                    default:
-            }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
-
-        menuItem2 = new JMenuItem("Quit");
-        menuItem2.addActionListener(e -> System.exit(0));
-
-        jmenu.add(menuItem);
-        jmenu.add(menuItem2);
-
-        frame.setJMenuBar(menuBar);
-        menuBar.add(jmenu);
-        frame.setVisible(true);
-
     }
+    private GameBoard(){
+        setTitle("Gomoku");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(500,500);
+        setContentPane(ContentPane);
 
+        MenuBar = new JMenuBar();
 
+        SystemMenu = new JMenu("System");
+        Background= new JMenuItem("Background");
+        Quit = new JMenuItem("Quit");
+        SystemMenu.add(Background);
+        SystemMenu.add(Quit);
+        MenuBar.add(SystemMenu);
+        setJMenuBar(MenuBar);
+
+        Quit.addActionListener(e -> System.exit(0));
+        Background.addActionListener(e -> System.out.println("add code to do the bg stuff here"));
+
+        ResetButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+            }
+        });
+        BackButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+            }
+        });
+        QuitButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                System.exit(0);
+            }
+        });
+    }
 }
