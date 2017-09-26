@@ -1,7 +1,13 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class GameBoard extends JFrame{
     private JButton ResetButton;
@@ -13,7 +19,8 @@ public class GameBoard extends JFrame{
     private JMenu SystemMenu;
     private JMenuItem Background;
     private JMenuItem Quit;
-
+    private Image BgImage;
+    private int i;
 
 
     public static void main(String[] args) {
@@ -29,9 +36,9 @@ public class GameBoard extends JFrame{
     private GameBoard(){
         setTitle("Gomoku");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(500,500);
+        setSize(525,600);
+        setResizable(false);
         setContentPane(ContentPane);
-
         MenuBar = new JMenuBar();
 
         SystemMenu = new JMenu("System");
@@ -41,9 +48,43 @@ public class GameBoard extends JFrame{
         SystemMenu.add(Quit);
         MenuBar.add(SystemMenu);
         setJMenuBar(MenuBar);
-
+        try {
+            BgImage=ImageIO.read(new File("Images\\maxresdefault.jpg"));
+            i=1;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        GamePanel.setImage(BgImage);
         Quit.addActionListener(e -> System.exit(0));
-        Background.addActionListener(e -> System.out.println("add code to do the bg stuff here"));
+
+        Background.addActionListener(e -> {
+            switch(i){
+                case 0:
+                    try {
+                        BgImage=ImageIO.read(new File("Images\\maxresdefault.jpg"));
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }i++;GamePanel.setImage(BgImage);
+                    break;
+                case 1:
+                    try {
+                        BgImage=ImageIO.read(new File("Images\\overwatch_s_sombra___patterned_bg_by_5h3113y-dafogxe.png"));
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }i++;GamePanel.setImage(BgImage);
+                    break;
+                case 2:
+                    try {
+                        BgImage=ImageIO.read(new File("Images\\overwatch_sombra_wallpaper_1920x1080_by_dahmaroc-dalpnfx.jpg"));
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }i=0;GamePanel.setImage(BgImage);
+                    break;
+                default:
+                    break;
+            }
+        });
+        ContentPane.setBackground(Color.BLACK);
 
         ResetButton.addMouseListener(new MouseAdapter() {
             @Override
