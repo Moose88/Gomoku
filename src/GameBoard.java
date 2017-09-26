@@ -1,8 +1,8 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -20,6 +20,7 @@ public class GameBoard extends JFrame{
     private JMenuItem Background;
     private JMenuItem Quit;
     private Image BgImage;
+    private GameController GameController;
     private int i;
 
 
@@ -90,6 +91,7 @@ public class GameBoard extends JFrame{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
+                GameController.NewGame();
             }
         });
         BackButton.addMouseListener(new MouseAdapter() {
@@ -103,6 +105,14 @@ public class GameBoard extends JFrame{
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 System.exit(0);
+            }
+        });
+        GamePanel.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                super.componentResized(e);
+                BufferedImage image = new BufferedImage(GamePanel.getWidth(),GamePanel.getHeight(),BufferedImage.TYPE_INT_ARGB);
+                GameController = new GameController(GamePanel,image);
             }
         });
     }
