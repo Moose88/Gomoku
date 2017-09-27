@@ -1,12 +1,12 @@
 public class StackObject {
     int x,y;
-    String colour;
+    Boolean IsBlack;
     StackObject next;
-    StackObject(int x, int y, String colour)
+    StackObject(int x, int y, Boolean IsBlack)
     {
         this.x = x;
         this.y=y;
-        this.colour=colour;
+        this.IsBlack=IsBlack;
         next = null;
     }
 }
