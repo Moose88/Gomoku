@@ -16,9 +16,13 @@ public class GameBoard extends JFrame{
     private JMenu SystemMenu;
     private JMenuItem Background;
     private JMenuItem Quit;
-    private Image BgImage;
+    private BufferedImage BgImage;
+    private BufferedImage ImageOne;
+    private BufferedImage ImageTwo;
+    private BufferedImage ImageThree;
     private GameController GameController;
     private int i;
+    private int size = 500;
 
 
     public static void main(String[] args) {
@@ -48,11 +52,12 @@ public class GameBoard extends JFrame{
         setJMenuBar(MenuBar);
         try {
             BgImage=ImageIO.read(new File("Images\\maxresdefault.jpg"));
+            ImageOne = Resize(BgImage);
             i=1;
         } catch (IOException e) {
             e.printStackTrace();
         }
-        GamePanel.setImage(BgImage);
+        GamePanel.setImage(ImageOne);
         Quit.addActionListener(e -> System.exit(0));
 
         Background.addActionListener(e -> {
@@ -60,23 +65,29 @@ public class GameBoard extends JFrame{
                 case 0:
                     try {
                         BgImage=ImageIO.read(new File("Images\\maxresdefault.jpg"));
+                        ImageOne = Resize(BgImage);
                     } catch (IOException e1) {
                         e1.printStackTrace();
-                    }i++;GamePanel.setImage(BgImage);
+                    }i++;GamePanel.setImage(ImageOne);
+                    GameController.Redraw(ImageOne);
                     break;
                 case 1:
                     try {
                         BgImage=ImageIO.read(new File("Images\\overwatch_s_sombra___patterned_bg_by_5h3113y-dafogxe.png"));
+                        ImageTwo = Resize(BgImage);
                     } catch (IOException e1) {
                         e1.printStackTrace();
-                    }i++;GamePanel.setImage(BgImage);
+                    }i++;GamePanel.setImage(ImageTwo);
+                    GameController.Redraw(ImageTwo);
                     break;
                 case 2:
                     try {
                         BgImage=ImageIO.read(new File("Images\\overwatch_sombra_wallpaper_1920x1080_by_dahmaroc-dalpnfx.jpg"));
+                        ImageThree = Resize(BgImage);
                     } catch (IOException e1) {
                         e1.printStackTrace();
-                    }i=0;GamePanel.setImage(BgImage);
+                    }i=0;GamePanel.setImage(ImageThree);
+                    GameController.Redraw(ImageThree);
                     break;
                 default:
                     break;
@@ -107,8 +118,10 @@ public class GameBoard extends JFrame{
         GamePanel.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println(e.getX()+","+e.getY());
-                GameController.DrawPiece(e.getX(),e.getY());
+                int x = e.getX()/38;
+                int y =e.getY()/38;
+                System.out.println(x +","+y);
+                GameController.Move(x,y);
             }
 
             @Override
@@ -139,5 +152,13 @@ public class GameBoard extends JFrame{
                 GameController = new GameController(GamePanel,image);
             }
         });
+    }
+    BufferedImage Resize(BufferedImage Image){
+        int type = Image.getType() == 0? BufferedImage.TYPE_INT_ARGB : Image.getType();
+        BufferedImage Resized = new BufferedImage(size,size ,type);
+        Graphics2D g = Resized.createGraphics();
+        g.drawImage(Image,0,0,size,size,null);
+        g.dispose();
+        return Resized;
     }
 }

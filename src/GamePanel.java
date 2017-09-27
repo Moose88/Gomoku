@@ -1,8 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.nio.Buffer;
 
 public class GamePanel extends JPanel {
-private static Image BgImage;
+private static BufferedImage BgImage;
 
     @Override
     protected void paintComponent(Graphics g){
@@ -10,11 +12,13 @@ private static Image BgImage;
         g.drawImage(BgImage, 0, 0, this.getWidth(),this.getHeight(),null);
 
     }
-    public Image getImage(){
+    public BufferedImage getImage(){
         return BgImage;
     }
-    public void setImage(Image image){
+
+    public void setImage(BufferedImage image){
         this.BgImage = image;
         this.repaint();
+
     }
 }
