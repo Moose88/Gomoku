@@ -99,6 +99,34 @@ public class GameBoard extends JFrame{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
+                switch (i){
+                    case 0:
+                        try {
+                            BgImage=ImageIO.read(new File("Images\\overwatch_sombra_wallpaper_1920x1080_by_dahmaroc-dalpnfx.jpg"));
+                            ImageThree = Resize(BgImage);
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }GamePanel.setImage(ImageThree);
+                        break;
+
+                    case 1:
+                        try {
+                            BgImage=ImageIO.read(new File("Images\\maxresdefault.jpg"));
+                            ImageOne = Resize(BgImage);
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }GamePanel.setImage(ImageOne);
+                        break;
+                    case 2:
+                    try {
+                        BgImage=ImageIO.read(new File("Images\\overwatch_s_sombra___patterned_bg_by_5h3113y-dafogxe.png"));
+                        ImageTwo = Resize(BgImage);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }GamePanel.setImage(ImageTwo);
+                    break;
+                    default:
+                }
                 GameController.NewGame();
             }
         });
@@ -118,10 +146,14 @@ public class GameBoard extends JFrame{
         GamePanel.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int x = e.getX()/38;
-                int y =e.getY()/38;
+                double X = e.getX()/(double)(GamePanel.getWidth()/14);
+                double Y = e.getY()/(double)(GamePanel.getHeight()/14);
+
+                int x = Round(X);
+                int y = Round(Y);
+
                 System.out.println(x +","+y);
-                GameController.Move(x,y);
+                GameController.Move(x, y);
             }
 
             @Override
@@ -161,4 +193,19 @@ public class GameBoard extends JFrame{
         g.dispose();
         return Resized;
     }
+
+    int Round(double num) {
+
+        long iPart = (long) num;
+        double fract = num - iPart;
+
+        if (fract > .5){
+            num = num + 1;
+            return (int) num;
+
+        }else{
+            return (int) num;
+        }
+    }
+
 }

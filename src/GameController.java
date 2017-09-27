@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.Stack;
 
 public class GameController {
     private  GamePanel GamePanel;
@@ -11,7 +12,8 @@ public class GameController {
     private int BoardSize = 14;
     private boolean IsBlack;
     private int size = 500;
-
+    private int Moves[][];
+    private int ptr;
     GameController(GamePanel GamePanel, BufferedImage Image)
     {
         this.GamePanel = GamePanel;
@@ -22,9 +24,11 @@ public class GameController {
     public void NewGame(){
         this.GameOver=false;
         this.IsBlack=true;
-        this.MoveTracker = new  String[13][13];
+        this.MoveTracker = new  String[15][15];
         Image = GamePanel.getImage();
         MakeBoard();
+        Moves = new int[255][2];
+        ptr=0;
         GamePanel.repaint();
     }
     public void Redraw(BufferedImage image)
@@ -38,10 +42,19 @@ public class GameController {
     {
         if (!CheckValidMove(x,y))
             return;
-        if(IsBlack) MoveTracker[x][y] = "B";
-        else MoveTracker[x][y] = "W";
+        if(IsBlack){
+            MoveTracker[x][y] = "B";
+            Moves[ptr][ptr]=Moves[x][y];
+            ptr++;
+        }
+        else{
+            MoveTracker[x][y] = "W";
+            Moves[ptr][ptr]=Moves[x][y];
+            ptr++;
+        }
 
-        DrawPiece((x*(500/15)-10),(y*(500/15)-10));
+        //add pieces based on array
+        DrawPiece((x*(width/14)-10),(y*(height/14)-10));
 
     }
     private boolean CheckValidMove(int x, int y)
@@ -79,13 +92,13 @@ public class GameController {
 
         g.setColor(Color.GREEN);
         g.setStroke(new BasicStroke(5));
-        for(int i = 1; i<=BoardSize;i++)
+        for(int i = 0; i<=BoardSize;i++)
         {
-            g.drawLine(0,i*(height/15),width,i*(width/15));
+            g.drawLine(0,i*(height/14),width-10,i*(width/14));
         }
-        for(int i=1;i<=BoardSize;i++)
+        for(int i=0;i<=BoardSize;i++)
         {
-            g.drawLine(i*(width/15),0,i*(height/15),height);
+            g.drawLine(i*(width/14),5,i*(height/14),height-10);
         }
 
 
