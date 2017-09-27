@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.Stack;
 
 public class GameController {
     private  GamePanel GamePanel;
@@ -11,7 +12,8 @@ public class GameController {
     private int BoardSize = 14;
     private boolean IsBlack;
     private int size = 500;
-
+    private MoveStack MoveStack;
+    private int ptr;
     GameController(GamePanel GamePanel, BufferedImage Image)
     {
         this.GamePanel = GamePanel;
@@ -22,9 +24,11 @@ public class GameController {
     public void NewGame(){
         this.GameOver=false;
         this.IsBlack=true;
-        this.MoveTracker = new  String[13][13];
+        this.MoveTracker = new  String[15][15];
         Image = GamePanel.getImage();
         MakeBoard();
+        MoveStack = new MoveStack();
+        ptr=0;
         GamePanel.repaint();
     }
     public void Redraw(BufferedImage image)
@@ -34,39 +38,38 @@ public class GameController {
         // Draw pieces for each that should be
         GamePanel.repaint();
     }
-    public void Move(int x, int y)
-    {
-        if (!CheckValidMove(x,y))
-            return;
-        if(IsBlack) MoveTracker[x][y] = "B";
-        else MoveTracker[x][y] = "W";
-
-        DrawPiece((x*(width/15)-10),(y*(height/15))-10);
-
-    }
     private boolean CheckValidMove(int x, int y)
     {
         if(MoveTracker[x][y] == null)
             return true;
         return false;
     }
-
-    private void DrawPiece(int x, int y)
+    public void Move(int x, int y)
     {
-        Graphics2D g;
-        g = Image.createGraphics();
-        if (IsBlack) {
-            g.setColor(Color.BLUE);
-            g.fillOval(x , y , 20, 20);
-            IsBlack = false;
 
-        }else{
-            g.setColor(Color.ORANGE);
-            g.fillOval(x , y , 20, 20);
+        if (!CheckValidMove(x,y))
+            return;
+        if(IsBlack){
+            MoveTracker[x][y] = "B";
+            MoveStack.Push(x,y,IsBlack);
+            IsBlack = false;
+        }
+        else{
+            MoveTracker[x][y] = "W";
+            MoveStack.Push(x,y,IsBlack);
             IsBlack = true;
         }
-        GamePanel.repaint();
+        DrawPiece();
 
+
+    }
+    private void DrawPiece(){
+        Graphics2D g;
+        g = Image.createGraphics();
+        if(MoveStack.ptr.IsBlack) g.setColor(Color.BLUE);
+        else g.setColor(Color.ORANGE);
+        g.fillOval(MoveStack.ptr.x*(width/14)-10,MoveStack.ptr.y*(width/14)-10,20,20);
+        GamePanel.repaint();
     }
 
     private void MakeBoard(){
@@ -79,20 +82,15 @@ public class GameController {
 
         g.setColor(Color.GREEN);
         g.setStroke(new BasicStroke(5));
-        for(int i = 1; i<=BoardSize;i++)
+        for(int i = 0; i<=BoardSize;i++)
         {
-            g.drawLine(0,i*(height/15),width,i*(width/15));
+            g.drawLine(0,i*(height/14),width-10,i*(width/14));
         }
-        for(int i=1;i<=BoardSize;i++)
+        for(int i=0;i<=BoardSize;i++)
         {
-            g.drawLine(i*(width/15),0,i*(height/15),height);
+            g.drawLine(i*(width/14),5,i*(height/14),height-10);
         }
 
-
-//        g.drawLine(0, height/15, width, width/15);
-//        g.drawLine(0, 2*height/15, width, 2*width/15);
-//        g.drawLine(width/15, 0, height/15, height);
-//        g.drawLine(2*width/15,0,2*height/15,height);
     }
 
 }
