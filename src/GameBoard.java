@@ -118,8 +118,8 @@ public class GameBoard extends JFrame{
         GamePanel.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int x = e.getX()/38;
-                int y =e.getY()/38;
+                int x = e.getX()/(GamePanel.getWidth()/15);
+                int y =e.getY()/(GamePanel.getHeight()/15);
                 System.out.println(x +","+y);
                 GameController.Move(x,y);
             }

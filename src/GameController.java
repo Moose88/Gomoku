@@ -41,7 +41,7 @@ public class GameController {
         if(IsBlack) MoveTracker[x][y] = "B";
         else MoveTracker[x][y] = "W";
 
-        DrawPiece((x*38),(y*38));
+        DrawPiece((x*(width/15)-10),(y*(height/15))-10);
 
     }
     private boolean CheckValidMove(int x, int y)
