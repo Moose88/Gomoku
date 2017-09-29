@@ -46,11 +46,13 @@ public class GameController {
             return;
         if(IsBlack){
             MoveTracker[x][y] = "B";
+            WinCond("B");
             MoveStack.Push(x,y,IsBlack);
             IsBlack = false;
         }
         else{
             MoveTracker[x][y] = "W";
+            WinCond("W");
             MoveStack.Push(x,y,IsBlack);
             IsBlack = true;
         }
@@ -97,15 +99,46 @@ public class GameController {
         g = Image.createGraphics();
 
         g.setColor(Color.GREEN);
-        g.setStroke(new BasicStroke(5));
+        g.setStroke(new BasicStroke(1));
         for(int i = 0; i<=BoardSize;i++)
         {
             g.drawLine(0,i*(height/14),width-10,i*(width/14));
         }
         for(int i=0;i<=BoardSize;i++)
         {
-            g.drawLine(i*(width/14),5,i*(height/14),height-10);
+            g.drawLine(i*(width/14),0,i*(height/14),height-10);
         }
+
+    }
+
+    private void WinCond(String c){
+
+        int count = 0;
+        int x = 0;
+        int y = 0;
+
+        for(int i=0; i < 15; i++){
+
+            for(int j = 0; j < 15; j++) {
+
+                    if (x + i < 15 && y + j < 15 && MoveTracker[x + i][y + j] == c) count++; // Checks all in x direction moving down y
+                    else if (x + j < 15 && y + i < 15 && MoveTracker[x + j][y + i] == c) count++; // Checks all y direction moving down x
+                    else if (x + j + i < 15 && MoveTracker[x + j + i][y + j] == c) count++; // Checks all diagonally from top left to bottom right moving in y direction
+                    else if (y + j + i < 15 && MoveTracker[x + j][y + j + i] == c) count++; // Checks all diagonally from top left to bottom right moving in x direction
+                    else if (14 - x - j - i >= 0 && y + j < 15 && MoveTracker[14 - x - j - i][y + j] == c) count++; // Checks all diagonally from top right to bottom left moving in x direction
+                    else if (14 - x - j >= 0 && y + j + i < 15 && MoveTracker[14 - x - j][y + j + i] == c) count++; // Checks all diagonally from top right to bottom left moving in y direction
+                    else count = 0;
+
+                    System.out.println("count = " + count);
+
+                    if (count == 5) break;
+
+            }
+
+            if (count == 5) break;
+        }
+
+        if(count == 5) System.out.println("Winner!");
 
     }
 

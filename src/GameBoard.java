@@ -37,7 +37,7 @@ public class GameBoard extends JFrame{
         setTitle("Gomoku");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setUndecorated(true);
+        //setUndecorated(true);
         setSize(525,600);
         setResizable(false);
         setContentPane(ContentPane);
