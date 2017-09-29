@@ -5,6 +5,7 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.Buffer;
 
 public class GameBoard extends JFrame{
     private JButton ResetButton;
@@ -17,9 +18,7 @@ public class GameBoard extends JFrame{
     private JMenuItem Background;
     private JMenuItem Quit;
     private BufferedImage BgImage;
-    private BufferedImage ImageOne;
-    private BufferedImage ImageTwo;
-    private BufferedImage ImageThree;
+    private BufferedImage CleanImage;
     private GameController GameController;
     private int i;
     private int size = 500;
@@ -50,48 +49,30 @@ public class GameBoard extends JFrame{
         SystemMenu.add(Quit);
         MenuBar.add(SystemMenu);
         setJMenuBar(MenuBar);
-        try {
-            BgImage=ImageIO.read(new File("Images\\maxresdefault.jpg"));
-            ImageOne = Resize(BgImage);
-            i=1;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        GamePanel.setImage(ImageOne);
+//        try {
+//            BgImage=ImageIO.read(new File("Images\\maxresdefault.jpg"));
+//            BgImage = Resize(BgImage);
+//            CleanImage = BgImage;
+//            i=1;
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+        i=0;
+        BgImage = chooseBackground();
+        CleanImage = chooseBackground();
+        i++;
+        GamePanel.setImage(BgImage);
+
         Quit.addActionListener(e -> System.exit(0));
 
         Background.addActionListener(e -> {
-            switch(i){
-                case 0:
-                    try {
-                        BgImage=ImageIO.read(new File("Images\\maxresdefault.jpg"));
-                        ImageOne = Resize(BgImage);
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }i++;GamePanel.setImage(ImageOne);
-                    GameController.Redraw(ImageOne);
-                    break;
-                case 1:
-                    try {
-                        BgImage=ImageIO.read(new File("Images\\overwatch_s_sombra___patterned_bg_by_5h3113y-dafogxe.png"));
-                        ImageTwo = Resize(BgImage);
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }i++;GamePanel.setImage(ImageTwo);
-                    GameController.Redraw(ImageTwo);
-                    break;
-                case 2:
-                    try {
-                        BgImage=ImageIO.read(new File("Images\\overwatch_sombra_wallpaper_1920x1080_by_dahmaroc-dalpnfx.jpg"));
-                        ImageThree = Resize(BgImage);
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }i=0;GamePanel.setImage(ImageThree);
-                    GameController.Redraw(ImageThree);
-                    break;
-                default:
-                    break;
-            }
+
+            BgImage = chooseBackground();
+            CleanImage = chooseBackground();
+            GamePanel.setImage(BgImage);
+            GameController.Redraw(BgImage);
+            ++i;
+            if(i>2)i=0;
         });
         ContentPane.setBackground(Color.BLACK);
 
@@ -99,34 +80,7 @@ public class GameBoard extends JFrame{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                switch (i){
-                    case 0:
-                        try {
-                            BgImage=ImageIO.read(new File("Images\\overwatch_sombra_wallpaper_1920x1080_by_dahmaroc-dalpnfx.jpg"));
-                            ImageThree = Resize(BgImage);
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                        }GamePanel.setImage(ImageThree);
-                        break;
-
-                    case 1:
-                        try {
-                            BgImage=ImageIO.read(new File("Images\\maxresdefault.jpg"));
-                            ImageOne = Resize(BgImage);
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                        }GamePanel.setImage(ImageOne);
-                        break;
-                    case 2:
-                    try {
-                        BgImage=ImageIO.read(new File("Images\\overwatch_s_sombra___patterned_bg_by_5h3113y-dafogxe.png"));
-                        ImageTwo = Resize(BgImage);
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }GamePanel.setImage(ImageTwo);
-                    break;
-                    default:
-                }
+                GamePanel.setImage(CleanImage);
                 GameController.NewGame();
             }
         });
@@ -182,6 +136,7 @@ public class GameBoard extends JFrame{
                 super.componentResized(e);
                 BufferedImage image = new BufferedImage(GamePanel.getWidth(),GamePanel.getHeight(),BufferedImage.TYPE_INT_ARGB);
                 GameController = new GameController(GamePanel,image);
+                GameController.NewGame();
             }
         });
     }
@@ -207,5 +162,38 @@ public class GameBoard extends JFrame{
             return (int) num;
         }
     }
+    private BufferedImage chooseBackground(){
+        BufferedImage image =null;
+        switch(i){
+            case 0:
+                try {
+                    image=ImageIO.read(new File("Images\\maxresdefault.jpg"));
+                    image = Resize(image);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                break;
+            case 1:
+                try {
+                    image=ImageIO.read(new File("Images\\overwatch_s_sombra___patterned_bg_by_5h3113y-dafogxe.png"));
+                    image = Resize(image);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                break;
+            case 2:
+                try {
+                    image=ImageIO.read(new File("Images\\overwatch_sombra_wallpaper_1920x1080_by_dahmaroc-dalpnfx.jpg"));
+                    image = Resize(image);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                break;
+            default:
+                break;
+        }
+        return image;
+    }
+
 
 }

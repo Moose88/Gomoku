@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.nio.Buffer;
 
 public class GamePanel extends JPanel {
 private static BufferedImage BgImage;
