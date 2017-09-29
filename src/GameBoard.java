@@ -5,7 +5,6 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.nio.Buffer;
 
 public class GameBoard extends JFrame{
     private JButton ResetButton;
@@ -37,6 +36,8 @@ public class GameBoard extends JFrame{
     private GameBoard(){
         setTitle("Gomoku");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setUndecorated(true);
         setSize(525,600);
         setResizable(false);
         setContentPane(ContentPane);
