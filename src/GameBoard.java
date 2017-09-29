@@ -5,7 +5,6 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.nio.Buffer;
 
 public class GameBoard extends JFrame{
     private JButton ResetButton;
@@ -20,7 +19,7 @@ public class GameBoard extends JFrame{
     private BufferedImage BgImage;
     private BufferedImage CleanImage;
     private GameController GameController;
-    private int i;
+    private int i=0;
     private int size = 500;
 
 
@@ -37,6 +36,8 @@ public class GameBoard extends JFrame{
     private GameBoard(){
         setTitle("Gomoku");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setUndecorated(true);
         setSize(525,600);
         setResizable(false);
         setContentPane(ContentPane);
@@ -49,17 +50,7 @@ public class GameBoard extends JFrame{
         SystemMenu.add(Quit);
         MenuBar.add(SystemMenu);
         setJMenuBar(MenuBar);
-//        try {
-//            BgImage=ImageIO.read(new File("Images\\maxresdefault.jpg"));
-//            BgImage = Resize(BgImage);
-//            CleanImage = BgImage;
-//            i=1;
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-        i=0;
         BgImage = chooseBackground();
-        CleanImage = chooseBackground();
         i++;
         GamePanel.setImage(BgImage);
 
@@ -68,7 +59,6 @@ public class GameBoard extends JFrame{
         Background.addActionListener(e -> {
 
             BgImage = chooseBackground();
-            CleanImage = chooseBackground();
             GamePanel.setImage(BgImage);
             GameController.Redraw(BgImage);
             ++i;
@@ -80,7 +70,7 @@ public class GameBoard extends JFrame{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                GamePanel.setImage(CleanImage);
+                GamePanel.setImage(CleanImage());
                 GameController.NewGame();
             }
         });
@@ -88,6 +78,8 @@ public class GameBoard extends JFrame{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
+                GamePanel.setImage(CleanImage());
+                GameController.ImBackBitches();
             }
         });
         QuitButton.addMouseListener(new MouseAdapter() {
@@ -162,6 +154,7 @@ public class GameBoard extends JFrame{
             return (int) num;
         }
     }
+    //TODO clean this up it's stupid
     private BufferedImage chooseBackground(){
         BufferedImage image =null;
         switch(i){
@@ -184,6 +177,38 @@ public class GameBoard extends JFrame{
             case 2:
                 try {
                     image=ImageIO.read(new File("Images\\overwatch_sombra_wallpaper_1920x1080_by_dahmaroc-dalpnfx.jpg"));
+                    image = Resize(image);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                break;
+            default:
+                break;
+        }
+        return image;
+    }
+    private BufferedImage CleanImage(){
+        BufferedImage image =null;
+        switch(i){
+            case 0:
+                try {
+                    image=ImageIO.read(new File("Images\\overwatch_sombra_wallpaper_1920x1080_by_dahmaroc-dalpnfx.jpg"));
+                    image = Resize(image);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                break;
+            case 1:
+                try {
+                    image=ImageIO.read(new File("Images\\maxresdefault.jpg"));
+                    image = Resize(image);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+                break;
+            case 2:
+                try {
+                    image=ImageIO.read(new File("Images\\overwatch_s_sombra___patterned_bg_by_5h3113y-dafogxe.png"));
                     image = Resize(image);
                 } catch (IOException e1) {
                     e1.printStackTrace();
