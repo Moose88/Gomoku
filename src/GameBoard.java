@@ -5,6 +5,7 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.Buffer;
 
 public class GameBoard extends JFrame{
     private JButton ResetButton;
@@ -17,6 +18,7 @@ public class GameBoard extends JFrame{
     private JMenuItem Background;
     private JMenuItem Quit;
     private BufferedImage BgImage;
+    private BufferedImage CleanImage;
     private GameController GameController;
     private int i;
     private int size = 500;
@@ -47,19 +49,26 @@ public class GameBoard extends JFrame{
         SystemMenu.add(Quit);
         MenuBar.add(SystemMenu);
         setJMenuBar(MenuBar);
-        try {
-            BgImage=ImageIO.read(new File("Images\\maxresdefault.jpg"));
-            BgImage = Resize(BgImage);
-            i=1;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            BgImage=ImageIO.read(new File("Images\\maxresdefault.jpg"));
+//            BgImage = Resize(BgImage);
+//            CleanImage = BgImage;
+//            i=1;
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+        i=0;
+        BgImage = chooseBackground();
+        CleanImage = chooseBackground();
+        i++;
         GamePanel.setImage(BgImage);
+
         Quit.addActionListener(e -> System.exit(0));
 
         Background.addActionListener(e -> {
 
             BgImage = chooseBackground();
+            CleanImage = chooseBackground();
             GamePanel.setImage(BgImage);
             GameController.Redraw(BgImage);
             ++i;
@@ -71,7 +80,7 @@ public class GameBoard extends JFrame{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                GamePanel.setImage(BgImage);
+                GamePanel.setImage(CleanImage);
                 GameController.NewGame();
             }
         });
@@ -127,6 +136,7 @@ public class GameBoard extends JFrame{
                 super.componentResized(e);
                 BufferedImage image = new BufferedImage(GamePanel.getWidth(),GamePanel.getHeight(),BufferedImage.TYPE_INT_ARGB);
                 GameController = new GameController(GamePanel,image);
+                GameController.NewGame();
             }
         });
     }

@@ -35,13 +35,12 @@ public class GameController {
     {
         this.Image = image;
         MakeBoard();
-        // Draw pieces for each that should be
-        GamePanel.repaint();
+        StackObject tempPtr = MoveStack.ptr;
+        Repiece(tempPtr);
     }
     private boolean CheckValidMove(int x, int y)
     {
-        if(MoveTracker[x][y] == null)
-            return true;
+        if(MoveTracker[x][y] == null) return true;
         return false;
     }
     public void Move(int x, int y)
@@ -70,6 +69,18 @@ public class GameController {
         else g.setColor(Color.ORANGE);
         g.fillOval(MoveStack.ptr.x*(width/14)-10,MoveStack.ptr.y*(width/14)-10,20,20);
         GamePanel.repaint();
+    }
+    private StackObject Repiece(StackObject tempPtr)
+    {
+        if(tempPtr == null)
+            return tempPtr;
+        Graphics2D g;
+        g = Image.createGraphics();
+        if(tempPtr.IsBlack) g.setColor(Color.BLUE);
+        else g.setColor(Color.ORANGE);
+        g.fillOval(tempPtr.x*(width/14)-10,tempPtr.y*(width/14)-10,20,20);
+        GamePanel.repaint();
+        return Repiece(tempPtr.next);
     }
 
     private void MakeBoard(){
