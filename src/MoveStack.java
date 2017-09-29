@@ -17,6 +17,7 @@ public class MoveStack {
     }
 
     public StackObject Pop() {
+        if (ptr==null) return null;
         StackObject temp = ptr;
         ptr = ptr.next;
         return temp;

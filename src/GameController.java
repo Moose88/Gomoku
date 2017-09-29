@@ -11,9 +11,8 @@ public class GameController {
     private String MoveTracker[][];
     private int BoardSize = 14;
     private boolean IsBlack;
-    private int size = 500;
     private MoveStack MoveStack;
-    private int ptr;
+
     GameController(GamePanel GamePanel, BufferedImage Image)
     {
         this.GamePanel = GamePanel;
@@ -28,15 +27,13 @@ public class GameController {
         Image = GamePanel.getImage();
         MakeBoard();
         MoveStack = new MoveStack();
-        ptr=0;
         GamePanel.repaint();
     }
     public void Redraw(BufferedImage image)
     {
         this.Image = image;
         MakeBoard();
-        StackObject tempPtr = MoveStack.ptr;
-        Repiece(tempPtr);
+        Repiece(MoveStack.ptr);
     }
     private boolean CheckValidMove(int x, int y)
     {
@@ -45,7 +42,6 @@ public class GameController {
     }
     public void Move(int x, int y)
     {
-
         if (!CheckValidMove(x,y))
             return;
         if(IsBlack){
@@ -59,8 +55,6 @@ public class GameController {
             IsBlack = true;
         }
         DrawPiece();
-
-
     }
     private void DrawPiece(){
         Graphics2D g;
@@ -81,6 +75,17 @@ public class GameController {
         g.fillOval(tempPtr.x*(width/14)-10,tempPtr.y*(width/14)-10,20,20);
         GamePanel.repaint();
         return Repiece(tempPtr.next);
+    }
+    public void ImBackBitches(){
+        this.Image=GamePanel.getImage();
+        MakeBoard();
+        GamePanel.repaint();
+        if (MoveStack.ptr == null) return;
+        MoveTracker[MoveStack.ptr.x][MoveStack.ptr.y] = null;
+        if(MoveStack.ptr.IsBlack) IsBlack=true;
+        else IsBlack=false;
+        MoveStack.Pop();
+        Repiece(MoveStack.ptr);
     }
 
     private void MakeBoard(){
