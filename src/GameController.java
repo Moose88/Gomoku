@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.Arrays;
 import java.util.Stack;
 
 public class GameController {
@@ -46,13 +47,13 @@ public class GameController {
             return;
         if(IsBlack){
             MoveTracker[x][y] = "B";
-            WinCond("B");
+            if(WinCheck(x, y)) System.out.println("Winner!");
             MoveStack.Push(x,y,IsBlack);
             IsBlack = false;
         }
         else{
             MoveTracker[x][y] = "W";
-            WinCond("W");
+            if(WinCheck(x, y)) System.out.println("Winner!");
             MoveStack.Push(x,y,IsBlack);
             IsBlack = true;
         }
@@ -111,34 +112,73 @@ public class GameController {
 
     }
 
-    private void WinCond(String c){
+    private Boolean WinCheck(int x, int y){
+
+        String consec1[] = new String[9];
+
+        for( int i = 0; i < 9; i++ ){ // x direction string
+
+            if( x-4+i < 0 || x-4+i > 14 ) consec1[i] = null;
+            else consec1[i] = MoveTracker[(x-4)+i][y];
+
+
+        }
+        System.out.println("x = " + Arrays.toString(consec1));
+        if(Consecutive(consec1)) return true;
+
+        String consec2[] = new String[9];
+
+        for ( int i = 0; i < 9; i++ ){ // y direction string
+
+            if( y-4+i < 0 || y-4+i > 14 ) consec2[i] = null;
+            else consec2[i] =MoveTracker[x][y-4+i];
+
+        }
+        System.out.println("y = " + Arrays.toString(consec2));
+        if( Consecutive(consec2)) return true;
+
+        String consec3[] = new String[9];
+
+        for( int i = 0; i < 9; i++ ){ // forward diagonal string
+
+            if( x-4+i < 0 || x-4+i > 14 || y-4+i < 0 || y-4+i > 14) consec3[i] = null;
+            else consec3[i] = MoveTracker[x-4+i][y-4+i];
+
+        }
+        System.out.println("FD = " + Arrays.toString(consec3));
+        if( Consecutive(consec3)) return true;
+
+        String consec4[] = new String[9];
+
+        for( int i = 0; i < 9; i++ ){ // backward diagonal string
+
+            if( x+4-i > 14 || x+4-i < 0 || y-4+i < 0 || y-4+i > 14) consec4[i] = null;
+            else consec4[i] = MoveTracker[x+4-i][y-4+i];
+
+        }
+        System.out.println("BD = " + Arrays.toString(consec4));
+        if( Consecutive(consec4)) return true;
+
+
+        return false;
+
+    }
+
+    private Boolean Consecutive(String[] c){
 
         int count = 0;
-        int x = 0;
-        int y = 0;
 
-        for(int i=0; i < 15; i++){
+        for( int i = 0; i < 8; i++ ){
 
-            for(int j = 0; j < 15; j++) {
+                if(c[i] != null && c[i] == c[i+1]) count++;
+                else count = 0;
 
-                    if (x + i < 15 && y + j < 15 && MoveTracker[x + i][y + j] == c) count++; // Checks all in x direction moving down y
-                    else if (x + j < 15 && y + i < 15 && MoveTracker[x + j][y + i] == c) count++; // Checks all y direction moving down x
-                    else if (x + j + i < 15 && MoveTracker[x + j + i][y + j] == c) count++; // Checks all diagonally from top left to bottom right moving in y direction
-                    else if (y + j + i < 15 && MoveTracker[x + j][y + j + i] == c) count++; // Checks all diagonally from top left to bottom right moving in x direction
-                    else if (14 - x - j - i >= 0 && y + j < 15 && MoveTracker[14 - x - j - i][y + j] == c) count++; // Checks all diagonally from top right to bottom left moving in x direction
-                    else if (14 - x - j >= 0 && y + j + i < 15 && MoveTracker[14 - x - j][y + j + i] == c) count++; // Checks all diagonally from top right to bottom left moving in y direction
-                    else count = 0;
+                if( count == 4 ) return true;
 
-                    System.out.println("count = " + count);
 
-                    if (count == 5) break;
-
-            }
-
-            if (count == 5) break;
         }
 
-        if(count == 5) System.out.println("Winner!");
+        return false;
 
     }
 
