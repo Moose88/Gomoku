@@ -154,6 +154,7 @@ public class GameBoard extends JFrame{
             return (int) num;
         }
     }
+
     //TODO clean this up it's stupid
     private BufferedImage chooseBackground(){
         BufferedImage image =null;

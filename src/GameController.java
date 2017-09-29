@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Arrays;
@@ -38,7 +39,7 @@ public class GameController {
     }
     private boolean CheckValidMove(int x, int y)
     {
-        if(MoveTracker[x][y] == null) return true;
+        if(GameOver == false && MoveTracker[x][y] == null) return true;
         return false;
     }
     public void Move(int x, int y)
@@ -47,17 +48,26 @@ public class GameController {
             return;
         if(IsBlack){
             MoveTracker[x][y] = "B";
-            if(WinCheck(x, y)) System.out.println("Winner!");
             MoveStack.Push(x,y,IsBlack);
             IsBlack = false;
+            DrawPiece();
+            if(WinCheck(x, y)){
+                GameOver=true;
+                System.out.println("Winner!");
+                JOptionPane.showMessageDialog(GamePanel, "Blue is the winner!");
+            }
         }
         else{
             MoveTracker[x][y] = "W";
-            if(WinCheck(x, y)) System.out.println("Winner!");
             MoveStack.Push(x,y,IsBlack);
             IsBlack = true;
+            DrawPiece();
+            if(WinCheck(x, y)){
+                GameOver=true;
+                System.out.println("Winner!");
+                JOptionPane.showMessageDialog(GamePanel, "Yellow is the winner!");
+            }
         }
-        DrawPiece();
     }
     private void DrawPiece(){
         Graphics2D g;
@@ -80,6 +90,7 @@ public class GameController {
         return Repiece(tempPtr.next);
     }
     public void ImBackBitches(){
+        GameOver = false;
         this.Image=GamePanel.getImage();
         MakeBoard();
         GamePanel.repaint();
@@ -164,22 +175,21 @@ public class GameController {
 
     }
 
-    private Boolean Consecutive(String[] c){
+    private Boolean Consecutive(String[] c){ // Checks to see if string has consecutive values
 
         int count = 0;
 
         for( int i = 0; i < 8; i++ ){
 
-                if(c[i] != null && c[i] == c[i+1]) count++;
+            if(c[i] != null && c[i] == c[i+1]) count++;
                 else count = 0;
 
-                if( count == 4 ) return true;
-
-
+            if( count == 4 ) return true;
         }
 
         return false;
 
     }
+
 
 }
