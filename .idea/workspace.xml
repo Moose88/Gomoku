@@ -28830,11 +28830,18 @@
       <option name="project" value="LOCAL" />
       <updated>1506664615005</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Win conditions met&#10;---------&#10;--NEEDS--&#10;-game logic &#10;  -Announce win condition&#10;--WANTS--&#10;-AI&#10;  -Easy (Probably feasible)&#10;  -Medium (Not likely)&#10;  -Hard (Not going to happen)&#10;---------&#10;Driver: Matt Bourgoine&#10;Navigator: Matt Myers">
+      <created>1506665057470</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1506665057471</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88003000" />
+    <option name="totallyTimeSpent" value="88714000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
