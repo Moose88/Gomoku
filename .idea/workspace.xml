@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00df65a5-3ba9-4b05-8252-a253bf959ee2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameBoard.java" afterPath="$PROJECT_DIR$/src/GameBoard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameController.java" afterPath="$PROJECT_DIR$/src/GameController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28811,11 +28808,18 @@
       <option name="project" value="LOCAL" />
       <updated>1506654105525</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Win conditions met&#10;---------&#10;--NEEDS--&#10;-game logic &#10;  -Announce win condition&#10;--WANTS--&#10;-AI&#10;  -Easy (Probably feasible)&#10;  -Medium (Not likely)&#10;  -Hard (Not going to happen)&#10;---------&#10;Driver: Matt Bourgoine&#10;Navigator: Matt Myers">
+      <created>1506664320540</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1506664320540</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87315000" />
+    <option name="totallyTimeSpent" value="87388000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
@@ -28890,7 +28894,8 @@
     <MESSAGE value="Simplified background manipulation&#10;---------&#10;--NEEDS--&#10;-game logic &#10;  -Win condition&#10;--WANTS--&#10;-AI&#10;  -Easy (Probably feasible)&#10;  -Medium (Not likely)&#10;  -Hard (Not going to happen)&#10;---------&#10;Driver: Matt Myers&#10;Navigator: Matt Bourgoine" />
     <MESSAGE value="Added repiece function so when background is changed pieces stay&#10;---------&#10;--NEEDS--&#10;-game logic &#10;  -Win condition&#10;--WANTS--&#10;-AI&#10;  -Easy (Probably feasible)&#10;  -Medium (Not likely)&#10;  -Hard (Not going to happen)&#10;---------&#10;Driver: Matt Myers&#10;Navigator: Matt Bourgoine" />
     <MESSAGE value="Back functionality implemented and working&#10;---------&#10;--NEEDS--&#10;-game logic &#10;  -Win condition&#10;--WANTS--&#10;-AI&#10;  -Easy (Probably feasible)&#10;  -Medium (Not likely)&#10;  -Hard (Not going to happen)&#10;---------&#10;Driver: Matt Myers&#10;Navigator: Matt Bourgoine" />
-    <option name="LAST_COMMIT_MESSAGE" value="Back functionality implemented and working&#10;---------&#10;--NEEDS--&#10;-game logic &#10;  -Win condition&#10;--WANTS--&#10;-AI&#10;  -Easy (Probably feasible)&#10;  -Medium (Not likely)&#10;  -Hard (Not going to happen)&#10;---------&#10;Driver: Matt Myers&#10;Navigator: Matt Bourgoine" />
+    <MESSAGE value="Win conditions met&#10;---------&#10;--NEEDS--&#10;-game logic &#10;  -Announce win condition&#10;--WANTS--&#10;-AI&#10;  -Easy (Probably feasible)&#10;  -Medium (Not likely)&#10;  -Hard (Not going to happen)&#10;---------&#10;Driver: Matt Bourgoine&#10;Navigator: Matt Myers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Win conditions met&#10;---------&#10;--NEEDS--&#10;-game logic &#10;  -Announce win condition&#10;--WANTS--&#10;-AI&#10;  -Easy (Probably feasible)&#10;  -Medium (Not likely)&#10;  -Hard (Not going to happen)&#10;---------&#10;Driver: Matt Bourgoine&#10;Navigator: Matt Myers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -29232,6 +29237,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -29239,6 +29245,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -29246,6 +29253,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
