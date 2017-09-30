@@ -1,0 +1,600 @@
+commit bbc1ee5ccd8389fb1d3fd0ba0a8a45a67dea63f6
+Author: Matthew <mbourgoine21@gmail.com>
+Date:   Fri Sep 29 22:40:14 2017 -0700
+
+    Comments added
+    ---------
+    --NEEDS--
+    
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Bourgoine
+    Navigator: Matt Myers
+
+commit e744e6659212699d3206e9aa0ca203a1acc43e99
+Author: Matt <mattclone@gmail.com>
+Date:   Fri Sep 29 20:58:56 2017 -0700
+
+    Readjusted gradient paint
+    
+    ---------
+    Driver: Matt Myers
+    Navigator: Matt Bourgoine
+
+commit 83ccfa2c810643ceb63da15deafa71e95f6947b2
+Author: Matthew Bourgoine <mbourgoine21@gmail.com>
+Date:   Sat Sep 30 03:37:17 2017 +0000
+
+    Revert "Merge remote-tracking branch 'origin/master'"
+    
+    This reverts commit 1ec357608e9cf594bbeb6d93da530160c32f04db
+
+commit 1ec357608e9cf594bbeb6d93da530160c32f04db
+Merge: bbfc74e 2a039e6
+Author: Matthew <mbourgoine21@gmail.com>
+Date:   Fri Sep 29 20:07:36 2017 -0700
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       .idea/workspace.xml
+
+commit bbfc74e6e2edbd667896c4bf373d7cf6b621c27e
+Author: Matthew <mbourgoine21@gmail.com>
+Date:   Fri Sep 29 20:05:47 2017 -0700
+
+    Adjusted board placement and piece placement
+    ---------
+    --NEEDS--
+    
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Bourgoine
+    Navigator: Matt Myers
+
+commit ab24235005b41cd23d4d8ab70b2507de95ce8544
+Author: Matthew <mbourgoine21@gmail.com>
+Date:   Fri Sep 29 20:04:57 2017 -0700
+
+    Adjusted board placement and piece placement
+    ---------
+    --NEEDS--
+    
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Bourgoine
+    Navigator: Matt Myers
+
+commit 2a039e63a818dc83c274f503cf71e0ed075b0ee8
+Author: Matt <mattclone@gmail.com>
+Date:   Fri Sep 29 18:34:36 2017 -0700
+
+    Renamed back function to something more appropriate
+    ---------
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Myers
+    Navigator: Matt Bourgoine
+
+commit dc15673a881917a53bfc1ed70fce9343c71d130b
+Author: Matt <mattclone@gmail.com>
+Date:   Fri Sep 29 18:31:51 2017 -0700
+
+    Added gradient paint to pieces instead of flat colour
+    ---------
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Myers
+    Navigator: Matt Bourgoine
+
+commit d23dcb952d1a10c967b644a0b2346053117bbbfc
+Author: Matthew Bourgoine <mbourgoine21@gmail.com>
+Date:   Fri Sep 29 15:00:11 2017 -0700
+
+    All minimum requirements of the customer have been met.
+    ---------
+    --NEEDS--
+    
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Bourgoine
+    Navigator: Matt Myers
+
+commit 30f77cbdefda6cc300f9f0961f0022e56323691f
+Author: Matthew Bourgoine <mbourgoine21@gmail.com>
+Date:   Fri Sep 29 12:32:54 2017 -0700
+
+    Win conditions met
+    ---------
+    --NEEDS--
+    -game logic
+      -Announce win condition
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Bourgoine
+    Navigator: Matt Myers
+
+commit a96d29ab5580bcfabb160274c6d9adc2dc49c004
+Author: Matthew <mbourgoine21@gmail.com>
+Date:   Fri Sep 29 07:07:54 2017 -0700
+
+    Win conditions met
+    ---------
+    --NEEDS--
+    -game logic
+      -Announce win condition
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Bourgoine
+    Navigator: Matt Myers
+
+commit 6212c105da97efb89333efcbeee33b3317959b6e
+Author: Matthew <mbourgoine21@gmail.com>
+Date:   Thu Sep 28 23:04:17 2017 -0700
+
+    Win conditions met
+    ---------
+    --NEEDS--
+    -game logic
+      -Announce win condition
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Bourgoine
+    Navigator: Matt Myers
+
+commit 4d781aa85e4010763be333bbec7c74c094d527e9
+Author: Matthew <mbourgoine21@gmail.com>
+Date:   Thu Sep 28 22:56:54 2017 -0700
+
+    Win conditions met
+    ---------
+    --NEEDS--
+    -game logic
+      -Announce win condition
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Bourgoine
+    Navigator: Matt Myers
+
+commit c46e9178a7b298245444941cee395aa837ec4bef
+Author: Matthew <mbourgoine21@gmail.com>
+Date:   Thu Sep 28 22:52:37 2017 -0700
+
+    Win conditions met
+    ---------
+    --NEEDS--
+    -game logic
+      -Announce win condition
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Bourgoine
+    Navigator: Matt Myers
+
+commit 089c1b2bb8a0888ddd3a8e5f9683c32d81007899
+Author: Matthew <mbourgoine21@gmail.com>
+Date:   Thu Sep 28 22:52:00 2017 -0700
+
+    Win conditions met
+    ---------
+    --NEEDS--
+    -game logic
+      -Announce win condition
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Bourgoine
+    Navigator: Matt Myers
+
+commit 4264082eab13c0de7e346eb31af08f9e254d0118
+Merge: e21e2eb 1d13afc
+Author: Matthew <mbourgoine21@gmail.com>
+Date:   Thu Sep 28 20:26:05 2017 -0700
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 1d13afc99bb7f3cbaf1ff7d575f82ddfc50dce98
+Author: Matt <mattclone@gmail.com>
+Date:   Thu Sep 28 20:12:19 2017 -0700
+
+    Removed title bar and set default open location
+    ---------
+    --NEEDS--
+    -game logic
+      -Win condition
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Myers
+    Navigator: Matt Bourgoine
+
+commit 108ec1167e20e2acacaed0f8d63e39c5815054fe
+Author: Matt <mattclone@gmail.com>
+Date:   Thu Sep 28 20:01:45 2017 -0700
+
+    Back functionality implemented and working
+    ---------
+    --NEEDS--
+    -game logic
+      -Win condition
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Myers
+    Navigator: Matt Bourgoine
+
+commit e21e2ebc02e4e3081bf746322783bc1466f413b7
+Merge: b64f65b 5bf4fc3
+Author: Matthew <mbourgoine21@gmail.com>
+Date:   Thu Sep 28 19:10:44 2017 -0700
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 5bf4fc33243aa31ba983b3fc2eca2b697c92d35f
+Author: Matt <mattclone@gmail.com>
+Date:   Thu Sep 28 19:10:17 2017 -0700
+
+    Added repiece function so when background is changed pieces stay
+    ---------
+    --NEEDS--
+    -game logic
+      -Win condition
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Myers
+    Navigator: Matt Bourgoine
+
+commit c59c73dc4881481be412455fb295a7fdcc9b2659
+Author: Matt <mattclone@gmail.com>
+Date:   Thu Sep 28 18:24:31 2017 -0700
+
+    Simplified background manipulation
+    ---------
+    --NEEDS--
+    -game logic
+      -Win condition
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Myers
+    Navigator: Matt Bourgoine
+
+commit b64f65bb8f1940a59a07d8ce0971374c0b944dc7
+Merge: e213067 329c949
+Author: Matthew <mbourgoine21@gmail.com>
+Date:   Wed Sep 27 16:19:38 2017 -0700
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       .idea/workspace.xml
+    #       src/GameBoard.java
+    #       src/GameController.java
+
+commit 329c949ca5b60b8262e48da1c334d50725876c63
+Author: Matt Myers <mattclone@gmail.com>
+Date:   Wed Sep 27 14:36:09 2017 -0700
+
+    Simplified placing a piece added stack for tracking moves to implement the back feature.
+    ---------
+    --NEEDS--
+    -game logic
+      -Win condition
+      -back feature
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Myers
+    Navigator: Matt Bourgoine
+
+commit 780ae6942f8b29841f5e547fab471212632a76c1
+Author: Matt Myers <mattclone@gmail.com>
+Date:   Wed Sep 27 12:19:45 2017 -0700
+
+    All drawing components now functioning proper;y
+    ---------
+    --NEEDS--
+    -game logic
+      -Win condition
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Myers
+    Navigator: Matt Bourgoine
+
+commit 0d57216a3e17c2fc35c914316ef6229d7714d870
+Author: Matt Myers <mattclone@gmail.com>
+Date:   Wed Sep 27 09:50:39 2017 -0700
+
+    Implemented BG Cycling
+    ---------
+    --NEEDS--
+    -Draw the 15x15 board
+    -game logic (this should be cake)
+      -Placing a piece
+      -Win condition
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Bourgoine
+    Navigator: Matt Myers
+
+commit e213067f3f9ec36945d3a769299dc36041077ff4
+Author: Matthew <mbourgoine21@gmail.com>
+Date:   Tue Sep 26 21:33:11 2017 -0700
+
+    Redid algorithm for proper piece placement
+    ---------
+    --NEEDS--
+    -Draw the 15x15 board
+    -game logic (this should be cake)
+      -Placing a piece
+      -Win condition
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Bourgoine
+    Navigator: Matt Myers
+
+commit 48d276843411ced3e416be55dd41110bcea15620
+Author: Matt <mattclone@gmail.com>
+Date:   Tue Sep 26 20:30:51 2017 -0700
+
+    Have board working with bg image
+    placing a piece is still funky
+    ---------
+    --NEEDS--
+    -game logic (this should be cake)
+      -Placing a piece
+      -Win condition
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Bourgoine
+    Navigator: Matt Myers
+
+commit 06bff7da2a2be87a7c25d17313d6781c6f7f232c
+Author: Matt Myers <mattclone@gmail.com>
+Date:   Tue Sep 26 17:16:13 2017 -0700
+
+    Implemented drawing of board and pieces
+    some mathematical trickery is still need to get things just right
+    ---------
+    --NEEDS--
+    -Draw the 15x15 board (Currently overrides background)
+    -game logic (this should be cake)
+      -Placing a piece(currently is only placing in the first section of the board)
+      -Win condition
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Myers
+    Navigator: Matt Bourgoine
+
+commit 2999a181e1e2aa1007c89f82fa738c54858c0505
+Merge: a802fa0 d71ef3f
+Author: Matt Myers <mattclone@gmail.com>
+Date:   Tue Sep 26 09:25:53 2017 -0700
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       src/Background.java
+
+commit d71ef3f12dd5e92cae5deff02712e2150df300b7
+Author: Matt <mattclone@gmail.com>
+Date:   Mon Sep 25 19:19:33 2017 -0700
+
+    Started Implementation of 15x15 board & Game Logic removed background.java class as it was unnecessary
+    ---------
+    --NEEDS--
+    -Draw the 15x15 board (Started)
+    -game logic (this should be cake) (Started)
+      -Placing a piece
+      -Win condition
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Bourgoine
+    Navigator: Matt Myers
+
+commit 7441eaf963c9b810ec4f7c91c88c3b6fd343eb77
+Author: Matt <mattclone@gmail.com>
+Date:   Mon Sep 25 18:20:33 2017 -0700
+
+    Implemented BG Cycling
+    ---------
+    --NEEDS--
+    -Draw the 15x15 board
+    -game logic (this should be cake)
+      -Placing a piece
+      -Win condition
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Bourgoine
+    Navigator: Matt Myers
+
+commit a802fa0862d51b9053b9b43268092b29a2d6e6c6
+Merge: 283e5f8 b3423a7
+Author: Matt Myers <mattclone@gmail.com>
+Date:   Mon Sep 25 09:38:04 2017 -0700
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       .idea/workspace.xml
+    #       src/GameBoard.java
+
+commit b3423a7070479c014aa7b006d64e3d41a266027e
+Author: Matt <mattclone@gmail.com>
+Date:   Sat Sep 23 20:18:22 2017 -0700
+
+    Fixed all the dumb
+    ---------
+    --NEEDS--
+    -Still need to get bg cycling in place
+    -Draw the 15x15 board
+    -game logic (this should be cake)
+      -Placing a piece
+      -Win condition
+    --WANTS--
+    -AI
+      -Easy (Probably feasible)
+      -Medium (Not likely)
+      -Hard (Not going to happen)
+    ---------
+    Driver: Matt Myers
+    Navigator: Matt Bourgoine
+
+commit 389c93e74e298c56a86c49f24ff6525cad87e557
+Author: Matt <mattclone@gmail.com>
+Date:   Sat Sep 23 16:24:58 2017 -0700
+
+    Added custom JPanel
+    Need to figure out why we cant call ChangeImage function from main.
+    Driver: Matt Myers
+    Navigator: Matt Bourgoine
+
+commit 283e5f85bdf911487240cc92b28b8896eb40be24
+Author: Matt Myers <mattclone@gmail.com>
+Date:   Tue Sep 19 14:30:26 2017 -0700
+
+    Fixed resize issue
+    Now buttons disappear when changing backgrounds needs fixing
+    needs to be optimized preferably using a lambda function
+    
+    Driver: Matt Myers
+    Navigator: Matt Bourgoine
+
+commit 8b6b69c5d4f9748f4e157150300e5659124981cf
+Author: Matt Myers <mattclone@gmail.com>
+Date:   Tue Sep 19 14:17:49 2017 -0700
+
+    Added functionality to background menu item but requires resized to refresh image
+    needs to be optimized preferably using a lambda function
+    
+    Driver: Matt Myers
+    Navigator: Matt Bourgoine
+
+commit b6e98666aec3035fb51a83303473051cc5a32647
+Author: Matt Myers <mattclone@gmail.com>
+Date:   Tue Sep 19 13:56:16 2017 -0700
+
+    Reverted change to background currently have temp background available
+    
+    Driver: Matt Myers
+    Navigator: Matt Bourgoine
+
+commit 2d952aba3a8921f8d46ac5ed79f88448a34dbcab
+Author: Matt Myers <mattclone@gmail.com>
+Date:   Tue Sep 19 13:41:32 2017 -0700
+
+    Started functionality for background
+    Added functionality to quit button and quit menu item
+    
+    Driver: Matt Bourgoine
+    Navigator: Matt Myers
+
+commit 8319c7ecce5f807307020c56bb90d0ae4a713421
+Author: Matt Myers <mattclone@gmail.com>
+Date:   Tue Sep 19 12:50:22 2017 -0700
+
+    Added functionality to quit button and quit menu item
+    
+    Started functionality for background
+    
+    Driver: Matt Bourgoine
+    Navigator: Matt Myers
+
+commit 026b8bc5d3cff3421371b30c7510379adec27e5b
+Author: Matt Myers <mattclone@gmail.com>
+Date:   Mon Sep 18 13:27:00 2017 -0700
+
+    Initial commit
+    Established base UI
+    Navigator: Matt Bourgoine
+    Driver: Matt Myers

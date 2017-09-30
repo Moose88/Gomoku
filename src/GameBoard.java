@@ -17,7 +17,6 @@ public class GameBoard extends JFrame{
     private JMenuItem Background;
     private JMenuItem Quit;
     private BufferedImage BgImage;
-    private BufferedImage CleanImage;
     private GameController GameController;
     private int i=0;
     private int size = 500;

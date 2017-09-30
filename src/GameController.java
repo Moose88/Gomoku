@@ -2,8 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
-import java.util.Arrays;
-import java.util.Stack;
 
 public class GameController {
     private  GamePanel GamePanel;

@@ -1,0 +1,9 @@
+Assignment Two: Pair Programming GUI & Git
+Authors:        Matt Myers, Matt Bourgoine
+Instructor:     Dr. Xinghui Zhao
+Class:          CS 320
+
+How to compile: As we are using IntelliJ forms to build this project this issue is more complex than it seems.
+We attempted unsuccessfully to provide an ant build file so it could be compiled on the command line as requested.
+As of now though the only way to compile this project is to install IntelliJ and import the project.  Included is
+also a .jar that is the working program.
