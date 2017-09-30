@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 import java.util.Arrays;
 import java.util.Stack;
@@ -72,9 +73,16 @@ public class GameController {
     private void DrawPiece(){
         Graphics2D g;
         g = Image.createGraphics();
-        if(MoveStack.ptr.IsBlack) g.setColor(Color.BLUE);
-        else g.setColor(Color.ORANGE);
-        g.fillOval(MoveStack.ptr.x*(width/14)-10,MoveStack.ptr.y*(width/14)-10,20,20);
+        GradientPaint PieceColor;
+        if(MoveStack.ptr.IsBlack){
+            PieceColor = new GradientPaint(MoveStack.ptr.x*(width/14)-10,MoveStack.ptr.y*(width/14)-10,Color.BLUE,(MoveStack.ptr.x*(width/14)-10)+20,MoveStack.ptr.y*(width/14)-10,Color.WHITE);
+            g.setPaint(PieceColor);
+        }
+        else{
+            PieceColor = new GradientPaint(MoveStack.ptr.x*(width/14)-10,MoveStack.ptr.y*(width/14)-10,Color.MAGENTA,(MoveStack.ptr.x*(width/14)-10)+20,MoveStack.ptr.y*(width/14)-10,Color.WHITE);
+            g.setPaint(PieceColor);
+        }
+        g.fill(new Ellipse2D.Double(MoveStack.ptr.x*(width/14)-10,MoveStack.ptr.y*(width/14)-10,20,20));
         GamePanel.repaint();
     }
     private StackObject Repiece(StackObject tempPtr)
@@ -83,9 +91,16 @@ public class GameController {
             return tempPtr;
         Graphics2D g;
         g = Image.createGraphics();
-        if(tempPtr.IsBlack) g.setColor(Color.BLUE);
-        else g.setColor(Color.ORANGE);
-        g.fillOval(tempPtr.x*(width/14)-10,tempPtr.y*(width/14)-10,20,20);
+        GradientPaint PieceColor;
+        if(tempPtr.IsBlack){
+            PieceColor = new GradientPaint(tempPtr.x*(width/14)-10,tempPtr.y*(width/14)-10,Color.BLUE,(tempPtr.x*(width/14)-10)+20,tempPtr.y*(width/14)-10,Color.WHITE);
+            g.setPaint(PieceColor);
+        }
+        else{
+            PieceColor = new GradientPaint(tempPtr.x*(width/14)-10,tempPtr.y*(width/14)-10,Color.MAGENTA,(tempPtr.x*(width/14)-10)+20,tempPtr.y*(width/14)-10,Color.WHITE);
+            g.setPaint(PieceColor);
+        }
+        g.fill(new Ellipse2D.Double(tempPtr.x*(width/14)-10,tempPtr.y*(width/14)-10,20,20));
         GamePanel.repaint();
         return Repiece(tempPtr.next);
     }
