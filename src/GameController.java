@@ -66,7 +66,7 @@ public class GameController {
             if(WinCheck(x, y)){
                 GameOver=true;
                 System.out.println("Winner!");
-                JOptionPane.showMessageDialog(GamePanel, "Yellow is the winner!");
+                JOptionPane.showMessageDialog(GamePanel, "Magenta is the winner!");
             }
         }
     }
@@ -75,11 +75,11 @@ public class GameController {
         g = Image.createGraphics();
         GradientPaint PieceColor;
         if(MoveStack.ptr.IsBlack){
-            PieceColor = new GradientPaint(MoveStack.ptr.x*(width/14)-5,MoveStack.ptr.y*(width/14)-5,Color.BLUE,(MoveStack.ptr.x*(width/14)-5)+5,MoveStack.ptr.y*(width/14)-5,Color.WHITE);
+            PieceColor = new GradientPaint(MoveStack.ptr.x*(width/14),MoveStack.ptr.y*(width/14),Color.BLUE,(MoveStack.ptr.x*(width/14))+20,MoveStack.ptr.y*(width/14),Color.WHITE);
             g.setPaint(PieceColor);
         }
         else{
-            PieceColor = new GradientPaint(MoveStack.ptr.x*(width/14)-5,MoveStack.ptr.y*(width/14)-5,Color.MAGENTA,(MoveStack.ptr.x*(width/14)-5)+5,MoveStack.ptr.y*(width/14)-5,Color.WHITE);
+            PieceColor = new GradientPaint(MoveStack.ptr.x*(width/14),MoveStack.ptr.y*(width/14),Color.MAGENTA,(MoveStack.ptr.x*(width/14))+15,MoveStack.ptr.y*(width/14),Color.WHITE);
             g.setPaint(PieceColor);
         }
         g.fill(new Ellipse2D.Double(MoveStack.ptr.x*(width/14)-5,MoveStack.ptr.y*(width/14)-5,20,20));
@@ -93,18 +93,18 @@ public class GameController {
         g = Image.createGraphics();
         GradientPaint PieceColor;
         if(tempPtr.IsBlack){
-            PieceColor = new GradientPaint(tempPtr.x*(width/14)-5,tempPtr.y*(width/14)-5,Color.BLUE,(tempPtr.x*(width/14)-5)+5,tempPtr.y*((width/14)-5)+5,Color.WHITE);
+            PieceColor = new GradientPaint(tempPtr.x*(width/14),tempPtr.y*(width/14),Color.BLUE,(tempPtr.x*(width/14))+20,tempPtr.y*((width/14)),Color.WHITE);
             g.setPaint(PieceColor);
         }
         else{
-            PieceColor = new GradientPaint(tempPtr.x*(width/14)-5,tempPtr.y*(width/14)-5,Color.MAGENTA,(tempPtr.x*(width/14)-5)+5,tempPtr.y*(width/14)-5,Color.WHITE);
+            PieceColor = new GradientPaint(tempPtr.x*(width/14),tempPtr.y*(width/14),Color.MAGENTA,(tempPtr.x*(width/14))+15,tempPtr.y*(width/14),Color.WHITE);
             g.setPaint(PieceColor);
         }
         g.fill(new Ellipse2D.Double(tempPtr.x*(width/14)-5,tempPtr.y*(width/14)-5,20,20));
         GamePanel.repaint();
         return Repiece(tempPtr.next);
     }
-    public void ImBackBitches(){
+    public void BackStep(){
         GameOver = false;
         this.Image=GamePanel.getImage();
         MakeBoard();
@@ -149,7 +149,7 @@ public class GameController {
 
 
         }
-        System.out.println("x = " + Arrays.toString(consec1));
+        //System.out.println("x = " + Arrays.toString(consec1));
         if(Consecutive(consec1)) return true;
 
         String consec2[] = new String[9];
@@ -160,7 +160,7 @@ public class GameController {
             else consec2[i] =MoveTracker[x][y-4+i];
 
         }
-        System.out.println("y = " + Arrays.toString(consec2));
+       // System.out.println("y = " + Arrays.toString(consec2));
         if( Consecutive(consec2)) return true;
 
         String consec3[] = new String[9];
@@ -171,7 +171,7 @@ public class GameController {
             else consec3[i] = MoveTracker[x-4+i][y-4+i];
 
         }
-        System.out.println("FD = " + Arrays.toString(consec3));
+        //System.out.println("FD = " + Arrays.toString(consec3));
         if( Consecutive(consec3)) return true;
 
         String consec4[] = new String[9];
@@ -182,7 +182,7 @@ public class GameController {
             else consec4[i] = MoveTracker[x+4-i][y-4+i];
 
         }
-        System.out.println("BD = " + Arrays.toString(consec4));
+        //System.out.println("BD = " + Arrays.toString(consec4));
         if( Consecutive(consec4)) return true;
 
 
