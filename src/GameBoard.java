@@ -79,7 +79,7 @@ public class GameBoard extends JFrame{
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 GamePanel.setImage(CleanImage());
-                GameController.StepBack();
+                GameController.ImBackBitches();
             }
         });
         QuitButton.addMouseListener(new MouseAdapter() {
