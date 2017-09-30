@@ -23,6 +23,8 @@ public class GameController {
 
     }
 
+    // When a new game is started, will initiate all the values for the game controller
+
     public void NewGame(){
         this.GameOver=false;
         this.IsBlack=true;
@@ -32,18 +34,19 @@ public class GameController {
         MoveStack = new MoveStack();
         GamePanel.repaint();
     }
-    public void Redraw(BufferedImage image)
+    public void Redraw(BufferedImage image) // Redraws the background and any appropriate pieces.
     {
         this.Image = image;
         MakeBoard();
         Repiece(MoveStack.ptr);
     }
-    private boolean CheckValidMove(int x, int y)
+    private boolean CheckValidMove(int x, int y) // Evaluates the clicked area to ensure the selected move is valid
     {
         if(GameOver == false && MoveTracker[x][y] == null) return true;
         return false;
     }
-    public void Move(int x, int y)
+
+    public void Move(int x, int y) // If move is valid, will add to the move stack the information of the move, and evaluate if a winner is found
     {
         if (!CheckValidMove(x,y))
             return;
@@ -70,7 +73,7 @@ public class GameController {
             }
         }
     }
-    private void DrawPiece(){
+    private void DrawPiece(){ // The piece image information
         Graphics2D g;
         g = Image.createGraphics();
         GradientPaint PieceColor;
@@ -85,7 +88,7 @@ public class GameController {
         g.fill(new Ellipse2D.Double(MoveStack.ptr.x*(width/14)-5,MoveStack.ptr.y*(width/14)-5,20,20));
         GamePanel.repaint();
     }
-    private StackObject Repiece(StackObject tempPtr)
+    private StackObject Repiece(StackObject tempPtr) // If a move is gone back, this will allow the stack to pop, then will redraw the board with the appropriate moves
     {
         if(tempPtr == null)
             return tempPtr;
@@ -104,7 +107,7 @@ public class GameController {
         GamePanel.repaint();
         return Repiece(tempPtr.next);
     }
-    public void BackStep(){
+    public void BackStep(){ // Takes a move back
         GameOver = false;
         this.Image=GamePanel.getImage();
         MakeBoard();
@@ -117,7 +120,7 @@ public class GameController {
         Repiece(MoveStack.ptr);
     }
 
-    private void MakeBoard(){
+    private void MakeBoard(){ // Draws the board with the appropriate background, board lines, and pieces
         width = GamePanel.getWidth();
         height = GamePanel.getHeight();
 
@@ -127,18 +130,18 @@ public class GameController {
 
         g.setColor(Color.GREEN);
         g.setStroke(new BasicStroke(1));
-        for(int i = 0; i<=BoardSize;i++)
+        for(int i = 0; i<=BoardSize;i++) // The x direction lines are drawn with a slight offset
         {
             g.drawLine(5,i*(height/14)+5,width-5,i*(width/14)+5);
         }
-        for(int i=0;i<=BoardSize;i++)
+        for(int i=0;i<=BoardSize;i++) // The y direction lines are drawn with a slight offset
         {
             g.drawLine(i*(width/14)+5,5,i*(height/14)+5,height-5);
         }
 
     }
 
-    private Boolean WinCheck(int x, int y){
+    private Boolean WinCheck(int x, int y){ // Evaluates if there is a winner
 
         String consec1[] = new String[9];
 

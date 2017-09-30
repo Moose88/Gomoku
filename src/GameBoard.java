@@ -23,7 +23,7 @@ public class GameBoard extends JFrame{
     private int size = 500;
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { // Initiates the Gameboard
         EventQueue.invokeLater(() -> {
             try {
                 GameBoard frame = new GameBoard();
@@ -33,7 +33,7 @@ public class GameBoard extends JFrame{
             }
         });
     }
-    private GameBoard(){
+    private GameBoard(){ // Builds the gameboard and assigns all appropriate variables to needed values
         setTitle("Gomoku");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -43,7 +43,7 @@ public class GameBoard extends JFrame{
         setContentPane(ContentPane);
         MenuBar = new JMenuBar();
 
-        SystemMenu = new JMenu("System");
+        SystemMenu = new JMenu("System"); // For the Menu Bar and it's functions
         Background= new JMenuItem("Background");
         Quit = new JMenuItem("Quit");
         SystemMenu.add(Background);
@@ -54,7 +54,7 @@ public class GameBoard extends JFrame{
         i++;
         GamePanel.setImage(BgImage);
 
-        Quit.addActionListener(e -> System.exit(0));
+        Quit.addActionListener(e -> System.exit(0)); // Allows the program to quit
 
         Background.addActionListener(e -> {
 
@@ -68,7 +68,7 @@ public class GameBoard extends JFrame{
 
         ResetButton.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void mouseClicked(MouseEvent e) { // Resets the board
                 super.mouseClicked(e);
                 GamePanel.setImage(CleanImage());
                 GameController.NewGame();
@@ -76,7 +76,7 @@ public class GameBoard extends JFrame{
         });
         BackButton.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void mouseClicked(MouseEvent e) { // Resets the background image and goes back a play
                 super.mouseClicked(e);
                 GamePanel.setImage(CleanImage());
                 GameController.BackStep();
@@ -84,12 +84,12 @@ public class GameBoard extends JFrame{
         });
         QuitButton.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void mouseClicked(MouseEvent e) { // Exits the game
                 super.mouseClicked(e);
                 System.exit(0);
             }
         });
-        GamePanel.addMouseListener(new MouseListener() {
+        GamePanel.addMouseListener(new MouseListener() { // When the panel is clicked, it will send the x and y values to be evaluated for rounding purposes
             @Override
             public void mouseClicked(MouseEvent e) {
                 double X = e.getX()/(double)(GamePanel.getWidth()/14);
@@ -141,7 +141,7 @@ public class GameBoard extends JFrame{
         return Resized;
     }
 
-    int Round(double num) {
+    int Round(double num) { // Evaluates the clicked area to evaluate the click if before or after .5
 
         long iPart = (long) num;
         double fract = num - iPart;
@@ -155,8 +155,7 @@ public class GameBoard extends JFrame{
         }
     }
 
-    //TODO clean this up it's stupid
-    private BufferedImage chooseBackground(){
+    private BufferedImage chooseBackground(){ // Background image selection
         BufferedImage image =null;
         switch(i){
             case 0:
@@ -188,7 +187,8 @@ public class GameBoard extends JFrame{
         }
         return image;
     }
-    private BufferedImage CleanImage(){
+
+    private BufferedImage CleanImage(){ // Sends the images to be resized
         BufferedImage image =null;
         switch(i){
             case 0:
