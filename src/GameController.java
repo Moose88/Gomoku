@@ -75,14 +75,14 @@ public class GameController {
         g = Image.createGraphics();
         GradientPaint PieceColor;
         if(MoveStack.ptr.IsBlack){
-            PieceColor = new GradientPaint(MoveStack.ptr.x*(width/14)-10,MoveStack.ptr.y*(width/14)-10,Color.BLUE,(MoveStack.ptr.x*(width/14)-10)+20,MoveStack.ptr.y*(width/14)-10,Color.WHITE);
+            PieceColor = new GradientPaint(MoveStack.ptr.x*(width/14)-5,MoveStack.ptr.y*(width/14)-5,Color.BLUE,(MoveStack.ptr.x*(width/14)-5)+5,MoveStack.ptr.y*(width/14)-5,Color.WHITE);
             g.setPaint(PieceColor);
         }
         else{
-            PieceColor = new GradientPaint(MoveStack.ptr.x*(width/14)-10,MoveStack.ptr.y*(width/14)-10,Color.MAGENTA,(MoveStack.ptr.x*(width/14)-10)+20,MoveStack.ptr.y*(width/14)-10,Color.WHITE);
+            PieceColor = new GradientPaint(MoveStack.ptr.x*(width/14)-5,MoveStack.ptr.y*(width/14)-5,Color.MAGENTA,(MoveStack.ptr.x*(width/14)-5)+5,MoveStack.ptr.y*(width/14)-5,Color.WHITE);
             g.setPaint(PieceColor);
         }
-        g.fill(new Ellipse2D.Double(MoveStack.ptr.x*(width/14)-10,MoveStack.ptr.y*(width/14)-10,20,20));
+        g.fill(new Ellipse2D.Double(MoveStack.ptr.x*(width/14)-5,MoveStack.ptr.y*(width/14)-5,20,20));
         GamePanel.repaint();
     }
     private StackObject Repiece(StackObject tempPtr)
@@ -93,14 +93,14 @@ public class GameController {
         g = Image.createGraphics();
         GradientPaint PieceColor;
         if(tempPtr.IsBlack){
-            PieceColor = new GradientPaint(tempPtr.x*(width/14)-10,tempPtr.y*(width/14)-10,Color.BLUE,(tempPtr.x*(width/14)-10)+20,tempPtr.y*(width/14)-10,Color.WHITE);
+            PieceColor = new GradientPaint(tempPtr.x*(width/14)-5,tempPtr.y*(width/14)-5,Color.BLUE,(tempPtr.x*(width/14)-5)+5,tempPtr.y*((width/14)-5)+5,Color.WHITE);
             g.setPaint(PieceColor);
         }
         else{
-            PieceColor = new GradientPaint(tempPtr.x*(width/14)-10,tempPtr.y*(width/14)-10,Color.MAGENTA,(tempPtr.x*(width/14)-10)+20,tempPtr.y*(width/14)-10,Color.WHITE);
+            PieceColor = new GradientPaint(tempPtr.x*(width/14)-5,tempPtr.y*(width/14)-5,Color.MAGENTA,(tempPtr.x*(width/14)-5)+5,tempPtr.y*(width/14)-5,Color.WHITE);
             g.setPaint(PieceColor);
         }
-        g.fill(new Ellipse2D.Double(tempPtr.x*(width/14)-10,tempPtr.y*(width/14)-10,20,20));
+        g.fill(new Ellipse2D.Double(tempPtr.x*(width/14)-5,tempPtr.y*(width/14)-5,20,20));
         GamePanel.repaint();
         return Repiece(tempPtr.next);
     }
@@ -129,11 +129,11 @@ public class GameController {
         g.setStroke(new BasicStroke(1));
         for(int i = 0; i<=BoardSize;i++)
         {
-            g.drawLine(0,i*(height/14),width-10,i*(width/14));
+            g.drawLine(5,i*(height/14)+5,width-5,i*(width/14)+5);
         }
         for(int i=0;i<=BoardSize;i++)
         {
-            g.drawLine(i*(width/14),0,i*(height/14),height-10);
+            g.drawLine(i*(width/14)+5,5,i*(height/14)+5,height-5);
         }
 
     }
