@@ -104,7 +104,7 @@ public class GameController {
         GamePanel.repaint();
         return Repiece(tempPtr.next);
     }
-    public void ImBackBitches(){
+    public void StepBack(){
         GameOver = false;
         this.Image=GamePanel.getImage();
         MakeBoard();
